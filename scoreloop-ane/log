@@ -1,0 +1,10 @@
+err: config: Failed to open file (/etc/system/config/qnxair_variant.conf): No such file or directory	(tid:1)
+Initializing struct to hold SL Controllers and data
+Starting SL thread
+Initializing BPS
+Registering domain and getting channel
+Initializing SC_InitData struct
+Setting domain
+Zeroing appData memory
+Loading data for SC Client struct
+About to create SC Client struct

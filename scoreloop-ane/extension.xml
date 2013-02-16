@@ -1,0 +1,22 @@
+<extension xmlns="http://ns.adobe.com/air/extension/2.5">
+    <id>BSLLC.library.ane.ScoreLoop</id>
+    <versionNumber>1.0.0</versionNumber>
+    <platforms>
+        <!--
+        <platform name="QNX-x86">
+            <applicationDeployment>
+                <nativeLibrary>libscoreloop-ane-x86.so</nativeLibrary>
+                <initializer>ExtensionInitializer</initializer>
+                <finalizer>ExtensionFinalizer</finalizer>
+            </applicationDeployment>
+        </platform>
+        -->
+        <platform name="QNX-ARM">
+            <applicationDeployment>
+                <nativeLibrary>libscoreloop-ane-arm.so</nativeLibrary>
+                <initializer>SLANEExtensionInitializer</initializer>
+                <finalizer>SLANEExtensionFinalizer</finalizer>
+            </applicationDeployment>
+        </platform>
+    </platforms>
+</extension>

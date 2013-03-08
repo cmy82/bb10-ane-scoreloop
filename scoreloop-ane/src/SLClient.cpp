@@ -21,11 +21,21 @@ extern "C" {
 //                         Variables
 //==============================================================================================
 
+char *sl_gameID      = NULL;
+char *sl_gameSecret  = NULL;
+char *sl_gameVersion = NULL;
+char *sl_currency    = NULL;
+char *sl_langs       = NULL;
+
+bool clientCreationSuccessful = false;
 
 //==============================================================================================
 //                         Custom Functions
 //==============================================================================================
 
+void clientCreationComplete(bps_event_t *event){
+   bps_event_destroy(event);
+}
 
 //==============================================================================================
 //                         ScoreLoop sc_init.h Function Stubs
@@ -35,6 +45,9 @@ extern "C" {
 //        const char* gameIdentifier, const char* gameSecret, const char* gameVersion, const char *currency,
 //        const char* languages);
 FREObject sl_ane_SC_Client_New(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
+   if( !clientCreationSuccessful ) clientCreationSuccessful = true;
+   else return NULL;
+
    const uint8_t *gameID,    *gameSecret,    *gameVersion,    *currency,    *languages;
    uint32_t       gameID_len, gameSecret_len, gameVersion_len, currency_len, languages_len;
 
@@ -45,38 +58,41 @@ FREObject sl_ane_SC_Client_New(FREContext ctx, void* functionData, uint32_t argc
    FREGetObjectAsUint32(argv[7],&currency_len);
    FREGetObjectAsUint32(argv[9],&languages_len);
 
-   char *gameid = (char*)malloc(gameID_len+1);
+   sl_gameID = (char*)malloc(gameID_len+1);
    FREGetObjectAsUTF8(argv[0], &gameID_len, &gameID );
-   strncpy(gameid,(char*)gameID,gameID_len);
-   gameid[gameID_len] = '\0';
+   strncpy(sl_gameID,(char*)gameID,gameID_len);
+   sl_gameID[gameID_len] = '\0';
 
-   char *gamesecret = (char*)malloc(gameSecret_len+1);
+   sl_gameSecret = (char*)malloc(gameSecret_len+1);
    FREGetObjectAsUTF8(argv[2], &gameSecret_len, &gameSecret );
-   strncpy(gamesecret,(char*)gameSecret,gameSecret_len);
-   gamesecret[gameSecret_len] = '\0';
+   strncpy(sl_gameSecret,(char*)gameSecret,gameSecret_len);
+   sl_gameSecret[gameSecret_len] = '\0';
 
-   char *gameversion = (char*)malloc(gameVersion_len+1);
+   sl_gameVersion = (char*)malloc(gameVersion_len+1);
    FREGetObjectAsUTF8(argv[4], &gameVersion_len, &gameVersion );
-   strncpy(gameversion,(char*)gameVersion,gameVersion_len);
-   gameversion[gameVersion_len] = '\0';
+   strncpy(sl_gameVersion,(char*)gameVersion,gameVersion_len);
+   sl_gameVersion[gameVersion_len] = '\0';
 
-   char *currncy = (char*)malloc(currency_len+1);
+   sl_currency = (char*)malloc(currency_len+1);
    FREGetObjectAsUTF8(argv[6], &currency_len, &currency );
-   strncpy(currncy,(char*)currency,currency_len);
-   currncy[currency_len] = '\0';
+   strncpy(sl_currency,(char*)currency,currency_len);
+   sl_currency[currency_len] = '\0';
 
-   char *langs = (char*)malloc(languages_len+1);
+   sl_langs = (char*)malloc(languages_len+1);
    FREGetObjectAsUTF8(argv[8], &languages_len, &languages );
-   strncpy(langs,(char*)languages,languages_len);
-   langs[languages_len] = '\0';
+   strncpy(sl_langs,(char*)languages,languages_len);
+   sl_langs[languages_len] = '\0';
 
-   cout << "About to create SC Client struct" << endl;
-   SC_Error_t code = SC_Client_New(&(appData->client),sl_initData,gameid,gamesecret,gameversion,currncy,langs);
+   bps_initialize();
+   bps_event_t *event;
+   bps_event_create(&event, sl_ANEDomain, CREATE_CLIENT, NULL, &clientCreationComplete);
+   int code = bps_channel_push_event(sl_ANEChannelID, event);
+   bps_shutdown();
+
    FREObject result;
    FRENewObjectFromInt32(code,&result);
    return result;
 }
-
 
 
 #ifdef __cplusplus

@@ -1,14 +1,13 @@
 /*
- * SCUserList.cpp
+ * SLSession.h
  *
- *  Created on: Feb 16, 2013
- *      Author: hu77
+ *  Created on: Feb 27, 2013
+ *      Author: CHRIS
  */
 
+#ifndef _SLANE_SLSESSION_H_
+#define _SLANE_SLSESSION_H_
 
-#include "Globals.h"
-
-using namespace std;
 
 
 #ifdef __cplusplus
@@ -20,7 +19,7 @@ extern "C" {
 //                         Variables
 //==============================================================================================
 
-SC_UserList_h userList;
+extern SC_Session_h sl_session;
 
 //==============================================================================================
 //                         Custom Functions
@@ -28,24 +27,8 @@ SC_UserList_h userList;
 
 
 //==============================================================================================
-//                         ScoreLoop sc_users_controller.h Function Stubs
+//                         ScoreLoop sc_user_controller.h Function Stubs
 //==============================================================================================
-
-/**
- * @brief Returns the number of users on the list.
- *
- * This method returns the total number of users on the list.
- *
- * @param self An opaque handle for the current SC_UserList instance.
- * @return unsigned int The number of users on the list.
- */
-//SC_PUBLISHED unsigned int SC_UserList_GetCount(SC_UserList_h self);
-FREObject sl_ane_SC_UserList_GetCount(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
-   FREObject result;
-   FRENewObjectFromUint32(SC_UserList_GetCount(userList),&result);
-   return result;
-}
-
 
 
 #ifdef __cplusplus
@@ -54,3 +37,4 @@ FREObject sl_ane_SC_UserList_GetCount(FREContext ctx, void* functionData, uint32
 
 
 
+#endif /* SLSESSION_H_ */

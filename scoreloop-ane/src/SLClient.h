@@ -21,11 +21,19 @@ extern "C" {
 //                         Variables
 //==============================================================================================
 
+extern char *sl_gameID;
+extern char *sl_gameSecret;
+extern char *sl_gameVersion;
+extern char *sl_currency;
+extern char *sl_langs;
+
+extern bool clientCreationSuccessful;
 
 //==============================================================================================
 //                         Custom Functions
 //==============================================================================================
 
+void clientCreationComplete(bps_event_t *event);
 
 //==============================================================================================
 //                         ScoreLoop sc_init.h Function Stubs
@@ -77,8 +85,6 @@ extern "C" {
 //        const char* gameIdentifier, const char* gameSecret, const char* gameVersion, const char *currency,
 //        const char* languages);
 FREObject sl_ane_SC_Client_New(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]);
-
-
 
 
 #ifdef __cplusplus

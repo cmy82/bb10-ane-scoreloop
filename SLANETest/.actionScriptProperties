@@ -34,7 +34,7 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="3" linkType="1" path="X:/BBDEV/PlayBook/Flash Builder/scoreloop-ane/bin/scoreloop-ane.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="X:/BBDEV/PlayBook/Flash Builder/scoreloop-swc/packaged-lib/scoreloop-ane.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="5" linkType="2" path="X:/BBDEV/QNX/WKSPCE/scoreloop-ane/packaged-ane/scoreloop-ane.ane"/>
       <libraryPathEntry kind="5" linkType="2" path="${BLACKBERRY_TABLET_SDK}/frameworks/libs/qnx/ane/QNXSkins.ane"/>
     </libraryPath>
@@ -50,21 +50,21 @@
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
     <buildTarget buildTargetName="com.qnx.flexide.multiplatform.qnx.platform" extraPackagingOptions="" signBarFile="false">
-      <multiPlatformSettings enabled="true" includePlatformLibs="false" platformID="com.qnx.flexide.multiplatform.qnx.platform" version="2"/>
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
         <anePaths>
           <anePathEntry path="X:/BBDEV/QNX/WKSPCE/scoreloop-ane/packaged-ane/scoreloop-ane.ane"/>
         </anePaths>
       </airSettings>
+      <multiPlatformSettings enabled="true" includePlatformLibs="false" platformID="com.qnx.flexide.multiplatform.qnx.platform" version="2"/>
       <actionScriptSettings version="1"/>
     </buildTarget>
     <buildTarget buildTargetName="default">
-      <multiPlatformSettings enabled="false" includePlatformLibs="false" platformID="default" version="2"/>
       <airSettings airCertificatePath="" airTimestamp="true" anePathSet="false" version="1">
         <airExcludes/>
         <anePaths/>
       </airSettings>
+      <multiPlatformSettings enabled="false" includePlatformLibs="false" platformID="default" version="2"/>
       <actionScriptSettings version="1"/>
     </buildTarget>
   </buildTargets>

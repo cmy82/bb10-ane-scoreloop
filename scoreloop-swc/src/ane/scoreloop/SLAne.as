@@ -1,5 +1,6 @@
 package ane.scoreloop {
    import flash.external.ExtensionContext;
+   import ane.scoreloop.core.SLClient;
    
    public class SLAne {
       private var context:ExtensionContext;

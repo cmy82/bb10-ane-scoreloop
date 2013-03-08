@@ -50,7 +50,7 @@ FREObject sl_ane_SC_UsersController_SetSearchLimit(FREContext ctx, void* functio
    uint32_t limit;
    FREGetObjectAsUint32(argv[0],&limit);
 
-   SC_Error_t code = SC_UsersController_SetSearchLimit(appData->userController,limit);
+   SC_Error_t code = SC_UsersController_SetSearchLimit(appData->usersController,limit);
 
    FREObject result;
    FRENewObjectFromInt32(code,&result);
@@ -73,7 +73,7 @@ FREObject sl_ane_SC_UsersController_SetSearchLimit(FREContext ctx, void* functio
  */
 //SC_PUBLISHED unsigned int SC_UsersController_GetSearchLimit(SC_UsersController_h self);
 FREObject sl_ane_SC_UsersController_GetSearchLimit(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
-   uint32_t limit = SC_UsersController_GetSearchLimit(appData->userController);
+   uint32_t limit = SC_UsersController_GetSearchLimit(appData->usersController);
 
    FREObject result;
    FRENewObjectFromInt32(limit,&result);
@@ -93,7 +93,7 @@ FREObject sl_ane_SC_UsersController_GetSearchLimit(FREContext ctx, void* functio
  */
 //SC_PUBLISHED SC_UserList_h SC_UsersController_GetUsers(SC_UsersController_h self);
 FREObject sl_ane_SC_UsersController_GetUsers(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
-   userList = SC_UsersController_GetUsers(appData->userController);
+   userList = SC_UsersController_GetUsers(appData->usersController);
 
    FREObject result;
    FRENewObjectFromUint32(SC_UserList_GetCount(userList),&result);
@@ -111,7 +111,7 @@ FREObject sl_ane_SC_UsersController_GetUsers(FREContext ctx, void* functionData,
  */
 //SC_PUBLISHED SC_Bool_t SC_UsersController_GetSearchesGlobal(SC_UsersController_h self);
 FREObject sl_ane_SC_UsersController_GetSearchesGlobal(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
-   SC_Bool_t enabled = SC_UsersController_GetSearchesGlobal(appData->userController);
+   SC_Bool_t enabled = SC_UsersController_GetSearchesGlobal(appData->usersController);
 
    FREObject result;
    FRENewObjectFromUint32(enabled,&result);
@@ -135,7 +135,7 @@ FREObject sl_ane_SC_UsersController_SetSearchesGlobal(FREContext ctx, void* func
    uint32_t enabled;
    FREGetObjectAsUint32(argv[0],&enabled);
 
-   SC_Error_t code = SC_UsersController_SetSearchesGlobal(appData->userController,(SC_Bool_t)enabled);
+   SC_Error_t code = SC_UsersController_SetSearchesGlobal(appData->usersController,(SC_Bool_t)enabled);
 
    FREObject result;
    FRENewObjectFromInt32(code,&result);
@@ -169,7 +169,7 @@ FREObject sl_ane_SC_UsersController_SearchByLogin(FREContext ctx, void* function
    strncpy(login_name,(char*)login,login_len);
    login_name[login_len] = '\0';
 
-   SC_Error_t code = SC_UsersController_SearchByLogin(appData->userController,login_name);
+   SC_Error_t code = SC_UsersController_SearchByLogin(appData->usersController,login_name);
 
    FREObject result;
    FRENewObjectFromInt32(code,&result);
@@ -206,7 +206,7 @@ FREObject sl_ane_SC_UsersController_SearchByEmail(FREContext ctx, void* function
    strncpy(email_addy,(char*)email,email_len);
    email_addy[email_len] = '\0';
 
-   SC_Error_t code = SC_UsersController_SearchByEmail(appData->userController,email_addy);
+   SC_Error_t code = SC_UsersController_SearchByEmail(appData->usersController,email_addy);
 
    FREObject result;
    FRENewObjectFromInt32(code,&result);
@@ -229,7 +229,7 @@ FREObject sl_ane_SC_UsersController_SearchByEmail(FREContext ctx, void* function
   */
 //SC_PUBLISHED SC_Error_t SC_UsersController_LoadBuddies(SC_UsersController_h self, SC_User_h user);
 FREObject sl_ane_SC_UsersController_LoadBuddies(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
-   SC_Error_t code = 0; //SC_UsersController_LoadBuddies(appData->userController,limit);
+   SC_Error_t code = 0; //SC_UsersController_LoadBuddies(appData->usersController,limit);
 
    FREObject result;
    FRENewObjectFromInt32(code,&result);
@@ -248,7 +248,7 @@ FREObject sl_ane_SC_UsersController_LoadBuddies(FREContext ctx, void* functionDa
  */
 //SC_PUBLISHED SC_Bool_t SC_UsersController_IsOverLimit(SC_UsersController_h self);
 FREObject sl_ane_SC_UsersController_IsOverLimit(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
-   SC_Bool_t over = SC_UsersController_IsOverLimit(appData->userController);
+   SC_Bool_t over = SC_UsersController_IsOverLimit(appData->usersController);
 
    FREObject result;
    FRENewObjectFromUint32(over,&result);
@@ -267,7 +267,7 @@ FREObject sl_ane_SC_UsersController_IsOverLimit(FREContext ctx, void* functionDa
  */
 //SC_PUBLISHED unsigned int SC_UsersController_GetUsersCount(SC_UsersController_h self);
 FREObject sl_ane_SC_UsersController_GetUsersCount(FREContext ctx, void* functionData, uint32_t argc, FREObject argv[]){
-   uint32_t count = SC_UsersController_GetUsersCount(appData->userController);
+   uint32_t count = SC_UsersController_GetUsersCount(appData->usersController);
 
    FREObject result;
    FRENewObjectFromUint32(count,&result);

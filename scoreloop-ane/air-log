@@ -1,2 +1,2 @@
-000 ---- 2013-02-16 02:43:48  --------------------------
-err: extension: failed to load /accounts/1000/appdata/SL.ANE.Test.debug.testDev__Test_debugbac63c42/app/air/META-INF/AIR/extensions/BSLLC.library.ane.ScoreLoop/META-INF/ANE/QNX-ARM/libscoreloop-ane-arm.so: Unresolved symbols	(tid:1)
+000 ---- 2013-02-23 21:05:20  --------------------------
+err: extension: failed to load /accounts/1000/appdata/BSLLC.applications.games.Speed.debug.testDev_Speed_debug646f3eb0/app/air/META-INF/AIR/extensions/BSLLC.library.ane.ScoreLoop/META-INF/ANE/QNX-ARM/libscoreloop-ane-arm.so: Unresolved symbols	(tid:1)

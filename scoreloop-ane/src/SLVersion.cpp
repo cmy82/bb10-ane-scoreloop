@@ -38,7 +38,7 @@ FREObject sl_ane_SC_GetVersionInfo(FREContext ctx, void* functionData, uint32_t 
    FRENewObjectFromUTF8(strlen(buffer),(uint8_t*)buffer,&result);
    return result;
 }
-\
+
 
 
 #ifdef __cplusplus

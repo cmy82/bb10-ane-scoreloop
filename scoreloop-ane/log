@@ -6,5 +6,29 @@ Registering domain and getting channel
 Initializing SC_InitData struct
 Setting domain
 Zeroing appData memory
+Waiting on BPS event in profile box thread
+Received BPS event in Main Thread
+Received BPS event in Main Thread
+Received BPS event in Main Thread
+Received event in Registration thread
 Loading data for SC Client struct
-About to create SC Client struct
+Attempting to create current user controller
+Attempting to get user info from session data
+[Scoreloop ANE]  User's login: <unknown>
+ User's login: <unknown>
+[Scoreloop ANE]  User's email: <unknown>
+ User's email: <unknown>
+Attempting to load user data
+Result: 0
+Entering run state for SL Main Thread
+Entering run state for SL Main Thread
+Entering run state for SL Main Thread
+Entering run state for SL Main Thread
+Entering run state for SL Main Thread
+Entering run state for SL Main Thread
+Entering run state for SL Main Thread
+Entering run state for SL Main Thread
+User request callback initiated
+[Scoreloop ANE]  User's login: CMY2
+[Scoreloop ANE]  User's email: b********************@g****.com
+Entering run state for SL Main Thread

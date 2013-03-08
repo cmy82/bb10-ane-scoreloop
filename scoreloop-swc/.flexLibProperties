@@ -2,7 +2,9 @@
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="true" version="3">
   <includeClasses>
     <classEntry path="ane.scoreloop.SLAne"/>
-    <classEntry path="ane.scoreloop.SLClient"/>
+    <classEntry path="ane.scoreloop.core.SLClient"/>
+    <classEntry path="ane.scoreloop.core.SLErrors"/>
+    <classEntry path="ane.scoreloop.core.SLUser"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

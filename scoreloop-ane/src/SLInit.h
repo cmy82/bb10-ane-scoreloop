@@ -9,8 +9,8 @@
 #include <FlashRuntimeExtensions.h>
 
 
-#ifndef SL_ANE_SLINIT_H_
-#define SL_ANE_SLINIT_H_
+#ifndef _SLANE_SLINIT_H_
+#define _SLANE_SLINIT_H_
 
 
 #ifdef __cplusplus
@@ -24,22 +24,29 @@ extern "C" {
 
 typedef enum {
    SL_INIT = 0,
+   SL_LOADING,
    SL_RUNNING,
    SL_STOPPING,
    SL_STOPPED
 } sl_ANEThreadState_e;
 
-extern sl_ANEThreadState_e slThreadState;
+typedef enum {
+   CREATE_CLIENT = 0,
+   CREATE_CONTROLLERS,
+} sl_ANEThreadCodes_e;
+
+extern sl_ANEThreadState_e sl_threadState;
 extern SC_InitData_t       *sl_initData;
 
 extern int sl_ANEDomain;
-extern int sl_channelID;
+extern int sl_ANEChannelID;
 
 //==============================================================================================
 //                         Custom Functions
 //==============================================================================================
 
 void* initScoreLoopThread(void *data);
+static void bpsEventComplete(bps_event_t *event);
 
 /**
  * @brief Allows you to set the minimum required version of the ScoreLoop Library
